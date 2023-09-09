@@ -17,7 +17,7 @@ cd $CA_ROOT/$SERVER_NAME
 openssl genrsa -out $SERVER_NAME.key 2048
 
 # generate CSR
-openssl req -new -key $SERVER_NAME.key -out $SERVER_NAME.csr \
+MSYS_NO_PATHCONV=1 openssl req -new -key $SERVER_NAME.key -out $SERVER_NAME.csr \
   -subj "/C=US/ST=California/L=Hayward/O=PG&E/OU=DA&I/CN=$SERVER_NAME"
 
 # send CSR to CA
